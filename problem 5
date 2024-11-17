@@ -1,0 +1,45 @@
+/*Write a program that takes an integer input n and stores the first n terms
+of the Fibonacci sequence in an array. Then, print the array. For example,
+if the user enters 7, store and display the first 7 terms of the Fibonacci
+sequence: 0, 1, 1, 2, 3, 5, 8. */
+
+
+
+import java.util.Scanner;
+
+public class fibonacci {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Accept integer input from the user
+        System.out.print("Enter the number of terms: ");
+        int n = input.nextInt();  // Number of terms in the Fibonacci sequence
+
+        // Edge case: If the number is less than or equal to 0
+        if (n <= 0) {
+            System.out.println("Please enter a positive integer greater than 0.");
+            return;
+        }
+
+        // Create an array to store the Fibonacci sequence
+        int[] fibonacci = new int[n];
+
+        // First two terms of Fibonacci sequence
+        if (n > 0) fibonacci[0] = 0;  // First term is 0
+        if (n > 1) fibonacci[1] = 1;  // Second term is 1
+
+        // Calculate the Fibonacci sequence
+        for (int i = 2; i < n; i++) {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];  // Next term is the sum of the previous two terms
+        }
+
+        // Print the Fibonacci sequence
+        System.out.print("Fibonacci Sequence: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci[i] + " ");
+        }
+
+        input.close();  // Close the scanner
+    }
+}
