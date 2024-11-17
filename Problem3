@@ -1,3 +1,11 @@
+*Build a menu-driven calculator that performs addition, subtraction,
+multiplication, or division based on the user's choice. Use if-else
+statements to determine the operation.
+Keep prompting the user to perform another operation until they choose
+to exit. */
+
+
+
 import java.util.Scanner;
 
 public class calculatorMenu{
