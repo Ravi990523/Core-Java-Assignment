@@ -7,37 +7,31 @@ sequence: 0, 1, 1, 2, 3, 5, 8. */
 
 import java.util.Scanner;
 
-public class fibonacci {
+public class Fibonacci {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        // Accept integer input from the user
+        // Accept integer input for number of terms
         System.out.print("Enter the number of terms: ");
-        int n = input.nextInt();  // Number of terms in the Fibonacci sequence
+        int n = input.nextInt();  
 
-        // Edge case: If the number is less than or equal to 0
+        // check for non-positive input
         if (n <= 0) {
             System.out.println("Please enter a positive integer greater than 0.");
             return;
         }
 
-        // Create an array to store the Fibonacci sequence
-        int[] fibonacci = new int[n];
-
-        // First two terms of Fibonacci sequence
-        if (n > 0) fibonacci[0] = 0;  // First term is 0
-        if (n > 1) fibonacci[1] = 1;  // Second term is 1
-
-        // Calculate the Fibonacci sequence
-        for (int i = 2; i < n; i++) {
-            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];  // Next term is the sum of the previous two terms
-        }
+        // Initialize the first two terms of Fibonacci
+        int a = 0, b = 1;
 
         // Print the Fibonacci sequence
         System.out.print("Fibonacci Sequence: ");
         for (int i = 0; i < n; i++) {
-            System.out.print(fibonacci[i] + " ");
+            System.out.print(a + " ");  // Print the current term
+            int nextTerm = a + b;  // Calculate next term
+            a = b;  // Update a to the previous b
+            b = nextTerm;  // Update b to the next term
         }
 
         input.close();  // Close the scanner
